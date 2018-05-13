@@ -1,0 +1,12 @@
+{
+  "manifest_version": 2,
+  "name": "acestream-links",
+  "description": "Convert acestream urls to clickable links.",
+  "version": "1.0",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["links.js"]
+    }
+  ]
+}
