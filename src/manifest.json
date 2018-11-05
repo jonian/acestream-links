@@ -3,10 +3,14 @@
   "name": "acestream-links",
   "description": "Convert acestream urls to clickable links.",
   "version": "1.0",
+  "icons": {
+    "128": "icon.png"
+  },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
       "js": ["links.js"]
     }
-  ]
+  ],
+  "permissions": ["activeTab"]
 }
