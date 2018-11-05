@@ -8,7 +8,7 @@ function addTextNode(node, string) {
 function addIconNode(node) {
   let icon   = document.createElement('img');
   icon.src   = browser.extension.getURL('icon.svg');
-  icon.style = 'height:1em;vertical-align:text-bottom;margin-right:5px';
+  icon.style = 'height:1em;vertical-align:middle;margin-right:5px;position:relative;top:-1px';
 
   node.appendChild(icon);
 }
