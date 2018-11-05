@@ -25,6 +25,7 @@ function addLinkNode(node, href) {
   addIconNode(link);
   addTextNode(link, href);
 
+  link.classList.add('generated-acelink-link');
   node.appendChild(link);
 }
 

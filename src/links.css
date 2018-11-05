@@ -5,3 +5,7 @@ img.generated-acelink-icon {
   position: relative;
   top: -1px;
 }
+
+a.generated-acelink-link {
+  text-decoration: underline;
+}
