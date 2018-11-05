@@ -1,3 +1,6 @@
+const linkRegex = new RegExp(/acestream\:\/\/[\w\d]+/);
+const lineRegex = new RegExp(`\\n?.*${linkRegex.source}.*\\n?`, 'g');
+
 function addTextNode(node, string) {
   if (!string.length) return;
 
@@ -26,9 +29,6 @@ function addLinkNode(node, href) {
 }
 
 function generateLinks(content) {
-  let linkRegex = new RegExp(/acestream\:\/\/[\w\d]+/);
-  let lineRegex = new RegExp(`\\n?.*${linkRegex.source}.*\\n?`, 'g');
-
   let linkXpath = "//*[not(self::a)][contains(text(), 'acestream://')]";
   let linkItems = document.evaluate(linkXpath, content, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
 
