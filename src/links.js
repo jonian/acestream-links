@@ -5,14 +5,24 @@ function addTextNode(node, string) {
   node.appendChild(text);
 }
 
+function addIconNode(node) {
+  let icon   = document.createElement('img');
+  icon.src   = browser.extension.getURL('icon.svg');
+  icon.style = 'height:1em;vertical-align:text-bottom;margin-right:5px';
+
+  node.appendChild(icon);
+}
+
 function addLinkNode(node, href) {
   if (!href.length) return;
 
-  let link = document.createElement('a');
-  node.appendChild(link);
-
+  let link  = document.createElement('a');
   link.href = href;
-  link.text = href;
+
+  addIconNode(link);
+  addTextNode(link, href);
+
+  node.appendChild(link);
 }
 
 let linkRegex = new RegExp(/acestream\:\/\/[\w\d]+/);
