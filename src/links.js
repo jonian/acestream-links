@@ -9,10 +9,10 @@ function addTextNode(node, string) {
 }
 
 function addIconNode(node) {
-  let icon   = document.createElement('img');
-  icon.src   = browser.extension.getURL('icon.svg');
-  icon.style = 'height:1em;vertical-align:middle;margin-right:5px;position:relative;top:-1px';
+  let icon = document.createElement('img');
+  icon.src = browser.extension.getURL('icon.svg');
 
+  icon.classList.add('generated-acelink-icon');
   node.appendChild(icon);
 }
 

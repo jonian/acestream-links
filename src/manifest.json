@@ -15,7 +15,8 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["links.js"]
+      "js": ["links.js"],
+      "css": ["links.css"]
     }
   ],
   "permissions": ["activeTab"],
