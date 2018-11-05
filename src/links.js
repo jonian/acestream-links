@@ -29,8 +29,9 @@ function addLinkNode(node, href) {
 }
 
 function generateLinks(content) {
+  let xpathMode = XPathResult.ORDERED_NODE_SNAPSHOT_TYPE;
   let linkXpath = "//*[not(self::a)][contains(text(), 'acestream://')]";
-  let linkItems = document.evaluate(linkXpath, content, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+  let linkItems = document.evaluate(linkXpath, content, null, xpathMode, null);
 
   for (let index = 0; index < linkItems.snapshotLength; index++) {
     let node = linkItems.snapshotItem(index);
