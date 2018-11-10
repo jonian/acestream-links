@@ -17,6 +17,14 @@
       "matches": ["<all_urls>"],
       "js": ["links.js"],
       "css": ["links.css"]
+    },
+    {
+      "matches": [
+        "https://www.reddit.com/r/streams*",
+        "https://www.reddit.com/r/soccerstreams*",
+        "https://www.reddit.com/r/NHLStreams*"
+      ],
+      "js": ["observer.js"]
     }
   ],
   "permissions": ["activeTab"],
