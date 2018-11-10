@@ -1,4 +1,4 @@
-const linkRegex = new RegExp(/acestream\:\/\/[\w\d]+/);
+const linkRegex = new RegExp(/acestream\:\/\/[\w\d]{40}/);
 const lineRegex = new RegExp(`\\n?.*${linkRegex.source}.*\\n?`, 'g');
 
 function addTextNode(node, string) {
