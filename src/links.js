@@ -1,10 +1,10 @@
-const linkRegex = new RegExp(/acestream\:\/\/[\w\d]{40}/);
-const lineRegex = new RegExp(`\\n?.*${linkRegex.source}.*\\n?`, 'g');
+const linkRegex = new RegExp(/acestream\:\/\/[\w\d]{40}/, 'i');
+const lineRegex = new RegExp(`\\n?.*${linkRegex.source}.*\\n?`, 'gi');
 
 function addTextNode(node, string) {
   if (!string.length) return;
 
-  let text = document.createTextNode(string);
+  let text = document.createTextNode(string.toLowerCase());
   node.appendChild(text);
 }
 
@@ -20,7 +20,7 @@ function addLinkNode(node, href) {
   if (!href.length) return;
 
   let link  = document.createElement('a');
-  link.href = href;
+  link.href = href.toLowerCase();
 
   addIconNode(link);
   addTextNode(link, href);
@@ -31,7 +31,7 @@ function addLinkNode(node, href) {
 
 function generateLinks(content) {
   let xpathMode = XPathResult.ORDERED_NODE_SNAPSHOT_TYPE;
-  let linkXpath = "//*[not(self::a)][contains(text(), 'acestream://')]";
+  let linkXpath = "//*[not(self::a)][contains(translate(text(), 'ACESTRM', 'acestrm'), 'acestream://')]";
   let linkItems = document.evaluate(linkXpath, content, null, xpathMode, null);
 
   for (let index = 0; index < linkItems.snapshotLength; index++) {
