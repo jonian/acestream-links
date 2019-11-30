@@ -53,4 +53,6 @@ function generateLinks(content) {
   }
 }
 
-generateLinks(document.body);
+if (document.body.textContent.match(linkRegex)) {
+  generateLinks(document.body);
+}
